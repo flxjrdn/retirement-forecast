@@ -15,7 +15,14 @@ lifestyle_score = st.slider("Lifestyle Score (1 = poor, 10 = excellent)", 1, 10,
 
 # Calculation
 life_expectancy = estimate_life_expectancy(age, gender, lifestyle_score)
-total_savings, drawdown = project_financials(age, int(retirement_age), savings, monthly_savings, monthly_expenses, int(life_expectancy))
+total_savings, drawdown = project_financials(
+    age,
+    int(retirement_age),
+    savings,
+    monthly_savings,
+    monthly_expenses,
+    int(life_expectancy),
+)
 
 # Outputs
 st.write(f"📈 **Estimated Life Expectancy:** {life_expectancy} years")

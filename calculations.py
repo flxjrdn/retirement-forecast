@@ -1,9 +1,18 @@
 def estimate_life_expectancy(age, gender, lifestyle_score) -> int:
-    base = 80 if gender == 'male' else 84
+    base = 80 if gender == "male" else 84
     adj = int((lifestyle_score - 5) * 1.5)  # crude modifier
     return int(min(100, max(age + 1, base + adj)))
 
-def project_financials(current_age, retirement_age, savings, monthly_savings, monthly_expenses, life_expectancy, growth_rate=0.05):
+
+def project_financials(
+    current_age,
+    retirement_age,
+    savings,
+    monthly_savings,
+    monthly_expenses,
+    life_expectancy,
+    growth_rate=0.05,
+):
     years_to_retire = retirement_age - current_age
     years_post_retirement = life_expectancy - retirement_age
 
