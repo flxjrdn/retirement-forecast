@@ -6,7 +6,9 @@ from src.interest_strategy.interest_strategy import InterestStrategy
 
 
 class BalanceWithHistoryAndStrategy:
-    def __init__(self, initial_amount: float, start_date: date, strategy: InterestStrategy):
+    def __init__(
+        self, initial_amount: float, start_date: date, strategy: InterestStrategy
+    ):
         self._history: List[Tuple[date, float]] = [(start_date, initial_amount)]
         self._strategy = strategy
 
