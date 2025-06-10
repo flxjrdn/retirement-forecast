@@ -1,5 +1,5 @@
 import streamlit as st
-from calculations import estimate_life_expectancy, project_financials
+from src.calculations import estimate_life_expectancy, project_financials
 import matplotlib.pyplot as plt
 
 st.title("Retirement & Life Expectancy Planner")
