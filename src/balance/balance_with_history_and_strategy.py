@@ -10,6 +10,8 @@ class BalanceWithHistoryAndStrategy:
         self, initial_amount: float, start_date: date, strategy: InterestStrategy
     ):
         self._history: List[Tuple[date, float]] = [(start_date, initial_amount)]
+        self._initial_amount = initial_amount
+        self._start_date = start_date
         self._strategy = strategy
 
     def current_amount(self) -> float:
@@ -37,6 +39,12 @@ class BalanceWithHistoryAndStrategy:
         new_date = self._advance_one_month(prev_date)
         new_amount = prev_amount * (1 + rate)
         self._history.append((new_date, new_amount))
+
+    def reset(self) -> None:
+        """
+        Reset the balance to its initial amount and date, and clear history.
+        """
+        self._history = [(self._start_date, self._initial_amount)]
 
     def _record_change(self, delta: float) -> None:
         prev_date, prev_amount = self._history[-1]

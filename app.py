@@ -168,6 +168,7 @@ target_age = st.number_input("Target Age to Project To", min_value=0, value=100)
 
 if st.button("Run Projection"):
     try:
+        portfolio.reset()
         portfolio.project_to_age(target_age)
         st.success("Projection completed.")
 

@@ -105,6 +105,14 @@ class AccountPortfolio:
         """Withdraw a specific amount from an account."""
         self._get_account(name).subtract(amount)
 
+    def reset(self) -> None:
+        """
+        Reset the portfolio to its initial state by clearing account histories
+        and resetting dates to the start date of each account.
+        """
+        for account in self._accounts.values():
+            account.reset()
+
     def _current_age(self, on_date: date) -> int:
         """Return the age of the person on a given date."""
         return relativedelta(on_date, self._birthdate).years
